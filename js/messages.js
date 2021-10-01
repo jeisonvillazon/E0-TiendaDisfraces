@@ -44,11 +44,25 @@ function generateRowsFromJson(json, tableId) {
 }
 
 function deleteMessage(id) {
-    //TODO
+    let data = { id: id };
+    const response = await fetch(API_URL, {
+        method: 'DELETE',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(data)
+    });
+    return response;
 }
 
 function editMessage(id) {
     //TODO
 }
+
+
 
 window.addEventListener("load", e => messajesLoaded());
